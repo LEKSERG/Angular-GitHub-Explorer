@@ -1,0 +1,23 @@
+.home{
+    border: #000 solid 2px;
+    padding: 10px;
+    h1{
+        color: #EA6D2D;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+.img{
+    margin: 10px;
+    width: 50%;
+    height: auto;
+}
+.text{
+    margin: 10px; 
+    text-align: justify;
+}

@@ -1,0 +1,51 @@
+<div class="search">
+    <h1>Search Users</h1>    
+    <div class="input">
+        <input type="text" [(ngModel)]='find' class="input-search" placeholder="username">
+        <button (click)="findUsers()" routerLink="/search/{{find}}" >Search</button>
+    </div>
+</div>
+
+<div class="results">
+    <ul>
+        <li class="list" *ngFor='let user of foundedUsers'>
+            <div class="info">
+                <img class="user-img" src="{{user.avatar_url}}" alt="avatar">
+                <p>@{{user.login}}</p>
+            </div>
+            <div class="links">
+                <p><a routerLink="/details/{{user.login}}" >View Details</a></p>
+                <p><a href="{{user.html_url}}" target="_blank">Open on Github</a></p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<ul  *ngIf="totalUsers > 20" class="pagination">
+    <li class="page-item">
+        <a class="page-link"
+        (click)="setPage(1)"
+        >First</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link"
+        (click)="setPage(currentPage - 1)"
+        routerLink="/search/{{find}}"
+        >Prev</a>
+    </li>
+    <li *ngFor="let page of pagesToShow" class="page-item" [ngClass]="{active: currentPage === page}">
+        <a class="page-link"
+        (click)="setPage(page)"                
+        >{{page}}</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link"
+        (click)="setPage(currentPage + 1)"
+        >Next</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link"
+        (click)="setPage(numOfPages)"
+        >Last</a>
+    </li>
+</ul>

@@ -1,0 +1,29 @@
+
+<div class="info-card">
+    <div class='header'>
+        <img src="{{userInfo.avatar_url}}" alt="avatar">
+        <p class="user">@{{userInfo.login}}</p>
+        <p><a href="{{userInfo.html_url}}" target="_blank">View on Github</a></p>
+    </div>
+
+    <div class="user-details">
+        <div><span><i class="fas fa-user fa-2x"></i></span><p>{{userInfo.name}}</p></div>
+        <div><span><i class="fas fa-clock fa-2x"></i></span><p>{{userInfo.created_at.substring(0,10)}}</p></div>
+        <div><span><i class="fas fa-map-marker-alt fa-2x"></i></span><p>{{userInfo.location || 'Location not specified'}}</p></div>
+        <div><span><i class="fas fa-briefcase fa-2x"></i></span><p>{{userInfo.company || 'Company not specified'}}</p></div>
+        <div><span><i class="fas fa-envelope fa-2x"></i></span><p>{{userInfo.email || 'Email hidden'}}</p></div>
+    </div>
+
+    <div class="repos">
+        <div>
+            <span><i class="fas fa-folder-open fa-2x"></i></span>
+            <h2>Repos:</h2>
+        </div>
+        <div class="all">
+            <div *ngFor="let repo of userRepos">
+                <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
